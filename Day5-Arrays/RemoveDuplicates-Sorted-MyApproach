@@ -1,0 +1,21 @@
+class Solution {
+    public int removeDuplicates(int[] nums) {
+        int[] expectedNums = new int[nums.length];
+        int k = 1;
+        int temp = nums[0];
+        expectedNums[0] = temp;
+        int j = 1;
+        for (int i=1; i<nums.length; i++){
+            if (nums[i] != temp){
+                expectedNums[j] = nums[i];
+                temp = nums[i];
+                k++;
+                j++;
+            }
+        }
+        for (int i = 0; i < k; i++) {
+    nums[i] = expectedNums[i];
+    }
+    return k;
+    }
+}
